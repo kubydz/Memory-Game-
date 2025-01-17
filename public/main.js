@@ -1,3 +1,6 @@
+const successSound = new Audio('public/sound/EpeePierre.mp3');
+const failureSound = new Audio('public/sound/CoupsRecu.mp3');
+const VictorySound = new Audio('public/sound/applaud.mp3')
 /// Tableau Img ///
 let cardsArray = [
     { id: 1, img: 'public/img/béhélit.jpeg' },
@@ -91,9 +94,13 @@ function checkCards() {
         found.push(flippedCard);
         backs[flippedId[0]].classList.add("foundCard");
         backs[flippedId[1]].classList.add("foundCard");
+        // Play success sound
+        successSound.play();
     } else {
         innerCards[flippedId[0]].classList.remove("flipped");
         innerCards[flippedId[1]].classList.remove("flipped");
+        // Play failure sound
+        failureSound.play();
     }
     flippedCard = [];
     flippedId = [];
@@ -104,18 +111,22 @@ function checkCards() {
 
 // Results 
 function results() {
-	chronoStop();
-	innerCards.forEach(card => card.removeEventListener("click", flippedCards));
-	resultDisplay.style.display = "block";
-	resultText.innerHTML = 	"<h1>Bravo</h1> " + "Vous avez trouvé toutes les paires en " + clickCount + " coups <br>"  + "Le tout en " + chronotime.value + " secondes";
-	if (clickCount < bestScore) {
-		bestScore = clickCount;
-		bestScoreDisplay.innerHTML = bestScore;
-	}
-	if (chronotime.value < bestChrono) {
-		bestChrono = chronotime.value;
-		bestChronoDisplay.innerHTML = bestChrono;
-	}
+    chronoStop();
+    innerCards.forEach(card => card.removeEventListener("click", flippedCards));
+    resultDisplay.style.display = "block";
+    resultText.innerHTML = "<h1>Bravo</h1> " + "Vous avez trouvé toutes les paires en " + clickCount + " coups <br>"  + "Le tout en " + chronotime.value + " secondes";
+    
+    // Son Victory en cas de Victoire
+    VictorySound.play();
+    
+    if (clickCount < bestScore) {
+        bestScore = clickCount;
+        bestScoreDisplay.innerHTML = bestScore;
+    }
+    if (chronotime.value < bestChrono) {
+        bestChrono = chronotime.value;
+        bestChronoDisplay.innerHTML = bestChrono;
+    }
 	close.onclick = function() {
 		resultDisplay.style.display = "none";
 	}
