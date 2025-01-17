@@ -11,7 +11,7 @@ let cardsArray = [
     { id: 6, img: 'public/img/pippin.webp' },
     { id: 7, img: 'public/img/Judeau.webp' },
     { id: 8, img: 'public/img/Bo.jpg' },
-    // double //
+    // double Img //
     { id: 1, img: 'public/img/béhélit.jpeg' },
     { id: 2, img: 'public/img/casca .jpeg' },
     { id: 3, img: 'public/img/grffith.jpg' },
@@ -23,7 +23,7 @@ let cardsArray = [
 ];
     
 
-
+// Tableau vide / Ciblage //
 
 	 flippedCard = [],
 	 flippedId = [],
@@ -44,14 +44,14 @@ window.onload = start();
 document.getElementById("rejouer").addEventListener("click", newGame);
 document.getElementById("playagain").addEventListener("click", newGame);
 
-// Start a game 
+// Start GAME //
 function start() {
 	shuffle(cardsArray);
 	assignCards();
 	innerCards.forEach(card => card.addEventListener("click", flippedCards));
 }
 
-// Assign cards
+// Assign cards //
 function assignCards() {
     for (var i = 0; i < cardsArray.length; i++) {
         var img = document.createElement('img');
@@ -87,19 +87,19 @@ function flippedCards() {
 	clickDisplay.innerHTML = clickCount;
 }
 
-// Check flipped cards
+// Check cards //
 function checkCards() {
     innerCards.forEach(card => card.addEventListener("click", flippedCards));
     if (flippedCard[0].id === flippedCard[1].id) {
         found.push(flippedCard);
         backs[flippedId[0]].classList.add("foundCard");
         backs[flippedId[1]].classList.add("foundCard");
-        // Play success sound
+        // Play Reussite Sound //
         successSound.play();
     } else {
         innerCards[flippedId[0]].classList.remove("flipped");
         innerCards[flippedId[1]].classList.remove("flipped");
-        // Play failure sound
+        // Play Defaite sound //
         failureSound.play();
     }
     flippedCard = [];
@@ -109,14 +109,14 @@ function checkCards() {
     }
 }
 
-// Results 
+// Result //
 function results() {
     chronoStop();
     innerCards.forEach(card => card.removeEventListener("click", flippedCards));
     resultDisplay.style.display = "block";
     resultText.innerHTML = "<h1>Bravo</h1> " + "Vous avez trouvé toutes les paires en " + clickCount + " coups <br>"  + "Le tout en " + chronotime.value + " secondes";
     
-    // Son Victory en cas de Victoire
+    // Sound Victory en cas de Victoire //
     VictorySound.play();
     
     if (clickCount < bestScore) {
@@ -137,7 +137,7 @@ function results() {
 	}
 }
 
-// Reinitialize and start a new game
+// Recommencer GAME	//
 function newGame() {
 	resultDisplay.style.display = "none";
 	clickDisplay.innerHTML = 0;
@@ -160,7 +160,7 @@ function shuffle(array) {
 	}
 }
 
-// C
+// Chrono F //
 let startTime = 0,
 	 isStarted = false,
 	 startTemps = 0,
