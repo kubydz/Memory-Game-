@@ -1,3 +1,6 @@
+*{
+	font-family: "Bubbler One", serif;
+}
 header, header a {
 	font-size: 1.5em;
 	margin: auto;
@@ -16,9 +19,9 @@ body {
 	padding: 20px 0;
 	background-image: url(./img/SKULL\ knignt.webp);
 	background-size:cover;
-	font-family: "Bubbler One", serif;
-  font-weight: 400;
-  font-style: normal;
+	
+    font-weight: 400;
+    
 	
 }
 
@@ -28,7 +31,7 @@ input {
 }
 
 p, a, ul, div, input, button {
-	font-family: 'Montserrat', sans-serif;
+	
 	font-size: 1.05em;
 	color: #af1313;
 	
@@ -36,7 +39,7 @@ p, a, ul, div, input, button {
 }
 
 h1, h2, h3, h4, title {
-	font-family: 'Montserrat', sans-serif;
+	font-family: "Bubbler One";
 	font-weight: 700;
 	text-align: center;
 }
@@ -49,6 +52,7 @@ button {
 	border: 0px solid #333; 
 	border-radius: 3px; 
 	text-transform: uppercase;
+	font-family: "Bubbler One";
 }
 
 button:hover { 
@@ -143,7 +147,7 @@ button:hover {
 		45deg, 
 		#ff6600, 
 		#ff0000, 
-		#ff6600, 
+		#ff0000, 
 		#ff3300
 	  ) 1;
 	}
@@ -209,13 +213,12 @@ button:hover {
 .topG {
 	background-color:rgba(0,0,0, 0.8);
 	/* opacity:80%; */
-	width:9.12em;
+	width:7.4em;
 	
 
 }
 
 .topD{
 	background-color:rgba(0,0,0, 0.8);
-	
-	width:13em;
+	width:11em;
 }
