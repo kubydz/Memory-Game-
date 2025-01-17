@@ -1,5 +1,5 @@
 /// Tableau Img ///
-var cardsArray = [
+let cardsArray = [
     { id: 1, img: 'public/img/béhélit.jpeg' },
     { id: 2, img: 'public/img/casca .jpeg' },
     { id: 3, img: 'public/img/grffith.jpg' },
@@ -25,7 +25,7 @@ var cardsArray = [
 	 flippedCard = [],
 	 flippedId = [],
 	 found = [],
-	 clickCount = 0,
+	 clickCount = 0, 
 	 bestScore = 99,    
 	 bestChrono = "10:00:000",
 	 innerCards = document.querySelectorAll(".inner"),
@@ -150,7 +150,7 @@ function shuffle(array) {
 }
 
 // C
-var startTime = 0,
+let startTime = 0,
 	 isStarted = false,
 	 startTemps = 0,
 	 end = 0,
@@ -160,9 +160,9 @@ function chrono(){
 	end = new Date();
 	diff = end - startTemps;
 	diff = new Date(diff);
-	var msec = diff.getMilliseconds();
-	var sec = diff.getSeconds();
-	var min = diff.getMinutes();
+	let msec = diff.getMilliseconds();
+	let sec = diff.getSeconds();
+	let min = diff.getMinutes();
 	if (min < 10){	
 		min = "0" + min;
 	}
