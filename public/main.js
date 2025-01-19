@@ -1,3 +1,4 @@
+// pistes audio //
 const successSound = new Audio('public/sound/EpeePierre.mp3');
 const failureSound = new Audio('public/sound/CoupsRecu.mp3');
 const VictorySound = new Audio('public/sound/applaud.mp3');
