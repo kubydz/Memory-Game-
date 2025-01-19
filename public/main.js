@@ -1,6 +1,8 @@
 const successSound = new Audio('public/sound/EpeePierre.mp3');
 const failureSound = new Audio('public/sound/CoupsRecu.mp3');
-const VictorySound = new Audio('public/sound/applaud.mp3')
+const VictorySound = new Audio('public/sound/applaud.mp3');
+const ambianceSound = new Audio ('public/sound/Susumu.mp3')
+
 /// Tableau Img ///
 let cardsArray = [
     { id: 1, img: 'public/img/béhélit.jpeg' },
@@ -46,6 +48,8 @@ document.getElementById("playagain").addEventListener("click", newGame);
 
 // Start GAME //
 function start() {
+	ambianceSound.loop = true
+    ambianceSound.play();
 	shuffle(cardsArray);
 	assignCards();
 	innerCards.forEach(card => card.addEventListener("click", flippedCards));
